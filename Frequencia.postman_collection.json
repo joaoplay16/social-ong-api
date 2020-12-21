@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "925a1aef-dda6-45a9-b465-f772013b27ac",
+		"name": "Frequencia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Freq/Listar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/sistema/Frequencia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"sistema",
+						"Frequencia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Freq/Detalhes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n{\n    \"data\": \"2020-09-10T15:24:39.304Z\",\n    \"alunos\": [\n       \"5f59201f7365d61fb65e6ca6\",\n        \"5f5928947365d61fb65e6cae\"\n    ],\n    \"turma\": \"5f5ff0f61103bd1257d0d713\"\n},\n{\n    \"data\": \"2020-09-10T15:24:39.304Z\",\n    \"alunos\": [\n       \"5f59201f7365d61fb65e6ca6\"\n    ],\n    \"turma\": \"5f5ff0f61103bd1257d0d712\"\n}\n\n\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/sistema/Frequencia/5f5ff1bdef0f4412ca93d951",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"sistema",
+						"Frequencia",
+						"5f5ff1bdef0f4412ca93d951"
+					]
+				},
+				"description": "Detalhes"
+			},
+			"response": []
+		},
+		{
+			"name": "Freq/Salvar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"turma\": \"5f676236d3d68b12c908f912\",\n        \"aluno\": \"5f662f76b4d8262b0ffe0dc6\",\n        \"presente\": true\n    },\n    {\n        \"turma\": \"5f676236d3d68b12c908f912\",\n        \"aluno\": \"5f6641457e817a35af08f400\",\n        \"presente\": false\n    },\n    {\n        \"turma\": \"5f676236d3d68b12c908f912\",\n        \"aluno\": \"5f6641676fd8df3601c54bf3\",\n        \"presente\": true\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/sistema/Frequencia/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"sistema",
+						"Frequencia",
+						""
+					]
+				},
+				"description": "Inserir"
+			},
+			"response": []
+		},
+		{
+			"name": "Freq/Atualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"presente\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/sistema/Frequencia/5f676776de70e3142cff530d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"sistema",
+						"Frequencia",
+						"5f676776de70e3142cff530d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Freq/Query ",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/sistema/Frequencia?aluno=5f6641457e817a35af08f400",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"sistema",
+						"Frequencia"
+					],
+					"query": [
+						{
+							"key": "presente",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "turma",
+							"value": "5f676236d3d68b12c908f911",
+							"disabled": true
+						},
+						{
+							"key": "aluno",
+							"value": "5f6641457e817a35af08f400"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
