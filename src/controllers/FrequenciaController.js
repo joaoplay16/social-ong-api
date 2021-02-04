@@ -3,27 +3,30 @@ const Frequencia = mongoose.model('Frequencia');
 
 module.exports = {
     //metodo salvar
-    async insert(req, res) {
-        let result = req.body.filter(async (f) => {
+    async insert (req, res) {
+        let result = await Promise.all(
+        req.body.filter( (f) => {
             //verificar se a frequencia com data, aluno e turma passados existe
-            let r = await Frequencia.findOne(
+            let r = Frequencia.findOne(
                 {
                     data: f.data,
                     turma: f.turma,
                     aluno: f.aluno
                 })
-                //se não existir cria uma nova
-            if (r == null) {
-                await Frequencia.create(f);
+            //se não existir cria uma nova
+            if (r === null) {
+                Frequencia.create(f);
+                return true
             }
+            return r !== null
+        }))
 
-            return r == null
-        })
+        console.log(result);
 
-        return res.json(result);
+        return res.sendStatus(200)
     },
     //metodo listar nome da turma e nome dos alunos presentes
-    async index(req, res) {
+    async index (req, res) {
         const { page } = req.query;
         console.log(req.query);
         const frequencia = await Frequencia.paginate(
@@ -39,26 +42,26 @@ module.exports = {
         return res.json(frequencia);
     },
     //metodo de detalhes
-    async detalhes(req, res) {
+    async detalhes (req, res) {
         const frequencia = await Frequencia.findById(req.params.id)
         return res.json(frequencia);
     },
     //metodo de Atualizar
-    async atualizar(req, res) {
+    async atualizar (req, res) {
         var frequencia = req.body.filter(async (f) => {
-           let obj = await Frequencia.findByIdAndUpdate(f._id, f);
-           return obj != null
+            let obj = await Frequencia.findByIdAndUpdate(f._id, f);
+            return obj != null
         })
         console.log(frequencia);
         return res.json(frequencia);
     },
     //metodo atualizar
-    async delete(req, res) {
+    async delete (req, res) {
         await Frequencia.findByIdAndRemove(req.params.id);
         return res.send();
     },
 
-    async find(req, res) {
+    async find (req, res) {
         await Frequencia.findOne({ data: req.params })
     }
 }
