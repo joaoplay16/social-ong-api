@@ -17,15 +17,12 @@ app.use("/assets", express.static(path.join(__dirname, "src/assets")))
 //conexão com banco de dados
 //mongoose.connect("mongodb+srv://dbJoao:ecmascript@cluster0.gfubd.mongodb.net/dbong?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
-try {
   mongoose.connect(
-    "mongodb://projetovamos:projetovamos2021:54975@mgeonosis.mongodb.umbler.com/projetovamos",
-    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
-    console.log(' ESSA PORRA CONECTOU! ');
-
-} catch (e) {
-  console.log("ERRO:  ", e)
-}
+    "mongodb://projetovamos:projetovamos2021:54975%40mgeonosis.mongodb.umbler.com/projetovamos",
+    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(d => {
+        console.log("CONECTOU");
+    })
+  
 
 //centraliza os models nessa pasta
 requireDir("./src/models")
