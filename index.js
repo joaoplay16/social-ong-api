@@ -19,7 +19,7 @@ app.use("/assets", express.static(path.join(__dirname, "src/assets")))
 
 try {
   mongoose.connect(
-    "mongodb://projetovamos:projetovamos2021:54975@mgeonosis.mongodb.umbler.com/projetovamos",
+    "mongodb://projetovamos:projetovamos2021:54975@geonosis.mongodb.umbler.com/projetovamos",
     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     console.log(' ESSA PORRA CONECTOU:  ');
 
