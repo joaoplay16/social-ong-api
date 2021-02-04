@@ -18,9 +18,11 @@ app.use("/assets", express.static(path.join(__dirname, "src/assets")))
 //mongoose.connect("mongodb+srv://dbJoao:ecmascript@cluster0.gfubd.mongodb.net/dbong?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
   mongoose.connect(
-    "mongodb://projetovamos:projetovamos2021:54975%40mgeonosis.mongodb.umbler.com/projetovamos",
+    "mongodb://projetovamos:projetovamos2021:54975%40geonosis.mongodb.umbler.com/projetovamos",
     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(d => {
         console.log("CONECTOU");
+    }).catch(e => {
+        console.log("DEU ERRO ", e);
     })
   
 
