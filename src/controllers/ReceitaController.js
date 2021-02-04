@@ -10,7 +10,11 @@ module.exports={
     //metodo listar
     async index(req, res){
         const{page} = req.query;
-        const despesa = await Receita.paginate({}, {page, limit: 500});
+        const despesa = await Receita.paginate({}, {page, limit: 500}).then(d => {
+            console.log('DADOS', d);
+        }).catch(e => {
+            console.log('DEU ERRO', e);
+        })
         return res.json(despesa);
     },
     //metodo de detalhes
