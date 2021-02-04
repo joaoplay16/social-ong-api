@@ -16,7 +16,7 @@ app.use('/assets', express.static(path.join(__dirname, 'src/assets')))
 
 //conexão com banco de dados
 //mongoose.connect("mongodb+srv://dbJoao:ecmascript@cluster0.gfubd.mongodb.net/dbong?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-mongoose.connect('mongodb://projetovamos:projetovamos2021:27017%40mongo_projetovamos/projetovamos', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect('mongodb://projetovamos:projetovamos2021:27017@mongo_projetovamos/projetovamos', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 //centraliza os models nessa pasta
 requireDir('./src/models');
