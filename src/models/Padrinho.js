@@ -37,6 +37,7 @@ const Padrinho = new mongoose.Schema({
             email:{   
                 type: String,
             }
+            
 });
 
 //paginando lista
