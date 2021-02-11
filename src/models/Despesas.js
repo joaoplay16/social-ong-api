@@ -19,8 +19,6 @@ const Despesa = new mongoose.Schema({
                 type: Date,
                 default: Date.now()
             }
-      
-
 });
 
 //paginando lista
