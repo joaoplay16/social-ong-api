@@ -34,7 +34,7 @@ const Padrinho = new mongoose.Schema({
             celular:{
                 type: String,
             },
-            email:{
+            email:{   
                 type: String,
             }
 
