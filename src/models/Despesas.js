@@ -23,6 +23,8 @@ const Despesa = new mongoose.Schema({
 
 });
 
+
+
 //paginando lista
 Despesa.plugin(mogoPaginate);
 
