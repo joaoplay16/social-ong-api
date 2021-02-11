@@ -39,8 +39,6 @@ const Padrinho = new mongoose.Schema({
             }
 
             
-
-            
 });
 
 //paginando lista
