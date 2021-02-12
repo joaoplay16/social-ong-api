@@ -4,10 +4,9 @@ const Frequencia = mongoose.model('Frequencia');
 module.exports = {
     //metodo salvar
     async insert (req, res) {
-        let result = await Promise.all(
-        req.body.filter( (f) => {
+        let result = req.body.filter( (f) => {
             //verificar se a frequencia com data, aluno e turma passados existe
-            let r = Frequencia.findOne(
+            let r = await Frequencia.findOne(
                 {
                     data: f.data,
                     turma: f.turma,
@@ -15,11 +14,11 @@ module.exports = {
                 })
             //se não existir cria uma nova
             if (r === null) {
-                Frequencia.create(f);
+                await Frequencia.create(f);
                 return true
             }
             return r !== null
-        }))
+        })
 
         console.log(result);
 
