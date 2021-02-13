@@ -4,7 +4,7 @@ const Frequencia = mongoose.model('Frequencia');
 module.exports = {
     //metodo salvar
     async insert (req, res) {
-        let result = req.body.filter( (f) => {
+        let result = req.body.filter( async (f) => {
             //verificar se a frequencia com data, aluno e turma passados existe
             let r = await Frequencia.findOne(
                 {
