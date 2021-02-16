@@ -48,7 +48,9 @@ class Userr{
     //login de acesso
   async login(req, res) {
     await User.findOne({
-      email: req.body.email 
+      email: req.body.email,
+      password: req.password
+
       
     }) //verificando se email existe no banco
     .then(user => {
