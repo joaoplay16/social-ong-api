@@ -216,6 +216,7 @@ module.exports = {
         dataFinal = data.setMonth(1)
         dataFinal = data.setFullYear(ano)
 
+        
 
         let dat = new Date();
         const an = dat.getFullYear() - 14;
@@ -264,7 +265,7 @@ module.exports = {
         dataInicial = dat.setMonth(1)
         dataInicial = dat.setFullYear(an)
 
-        const alunos = await PublicoAtendido.find({ raca: 'preto', dataNascimento: { $gte: dataInicial, $lt: dataFinal } });
+        const alunos = await PublicoAtendido.find({ raca: 'Preto', dataNascimento: { $gte: dataInicial, $lt: dataFinal } });
         return res.json(alunos);
     },
     async indexPreto2(req, res) {
@@ -284,7 +285,7 @@ module.exports = {
         dataInicial = dat.setMonth(1)
         dataInicial = dat.setFullYear(an)
 
-        const alunos = await PublicoAtendido.find({ raca: 'preto', dataNascimento: { $gte: dataInicial, $lt: dataFinal } });
+        const alunos = await PublicoAtendido.find({ raca: 'Preto', dataNascimento: { $gte: dataInicial, $lt: dataFinal } });
         return res.json(alunos);
     },
     async indexPreto3(req, res) {
@@ -304,7 +305,7 @@ module.exports = {
         dataInicial = dat.setMonth(1)
         dataInicial = dat.setFullYear(an)
 
-        const alunos = await PublicoAtendido.find({ raca: 'preto', dataNascimento: { $gte: dataInicial, $lt: dataFinal } });
+        const alunos = await PublicoAtendido.find({ raca: 'Preto', dataNascimento: { $gte: dataInicial, $lt: dataFinal } });
         return res.json(alunos);
     },
 
