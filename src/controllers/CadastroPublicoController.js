@@ -216,6 +216,7 @@ module.exports = {
         dataFinal = data.setMonth(1)
         dataFinal = data.setFullYear(ano)
 
+        
 
         let dat = new Date();
         const an = dat.getFullYear() - 14;
