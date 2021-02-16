@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const PublicoAtendido = mongoose.model('PublicoAtendido');
-const deleteFile = require('../util/fileutils')
+const deleteFile = require('../util/fileutils') //ttttt
 
 module.exports = {
     //metodo salvar
