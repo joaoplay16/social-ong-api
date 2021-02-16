@@ -18,15 +18,16 @@ app.use("/assets", express.static(path.join(__dirname, "src/assets")))
 //mongoose.connect("mongodb+srv://dbJoao:ecmascript@cluster0.gfubd.mongodb.net/dbong?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 try {
+  let url = process.env.NODE_ENV == 'production' ?  
+  "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos"
+  : "mongodb://projetovamos:projetovamos2021@geonosis.mongodb.umbler.com:54975/projetovamos"
+  
+  console.log("URL", url);
   mongoose.connect(
-    "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos",  {
+    url,  {
         useNewUrlParser: true
       })
-    console.log(' ESSA PORRA CONECTOU:  ');
-
-    //seijiyokai@gmail.com
-
-
+    console.log('CONECTOU: ')
 } catch (e) {
   console.log("ERRO:  ", e)
 }
