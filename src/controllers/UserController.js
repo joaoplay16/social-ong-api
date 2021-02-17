@@ -49,9 +49,7 @@ class Userr{
   async login(req, res) {
     await User.findOne({
       email: req.body.email,
-      password: req.password
-
-      
+      password: req.body.password
     }) //verificando se email existe no banco
     .then(user => {
       if (user){
@@ -84,8 +82,8 @@ class Userr{
           
       }else{
         console.log("err 10")
-      }
-    })
+    }
+  })
     .catch(err => {
       console.log("err 4")
       res.send('error: ' + err)
