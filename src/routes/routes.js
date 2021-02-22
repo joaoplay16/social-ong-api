@@ -16,6 +16,7 @@ const Receita = require('../controllers/ReceitaController')
 const Turma = require('../controllers/TurmaController')
 const Frequencia = require('../controllers/FrequenciaController')
 const TurmaAluno = require('../controllers/TurmaAlunoController')
+const Planejamento = require('../controllers/Planejamento')
 
 const createUpload = require('../util/multer-upload')
 const uploadPublicoAtendito = 
@@ -145,6 +146,9 @@ routes.get('/Frequencia', Frequencia.index);//lista
 routes.get('/Frequencia/:id', Frequencia.detalhes);//detalhes
 routes.put('/Frequencia', Frequencia.atualizar);//atualizar
 routes.delete('/Frequencia/:id', Frequencia.delete);//deletar 
+
+routes.post('/planejamento', Planejamento.insert);//salvar
+routes.get('/planejamento', Planejamento.index);//lista
 
 routes.post('/user', User.insert);//salvar
 routes.post('/userLogin', User.login);//lista
