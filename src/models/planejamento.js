@@ -13,13 +13,13 @@ const Planejamento = new mongoose.Schema({
                 type: String,
             },
             aceitacao:{
-                type: Number,
+                type: String,
             },
             observacao:{
                 type: String,
             },
             dataAtividade:{
-                tyoe:Date,
+                type:Date,
             },
             dataPlanejamento:{
                 type: Date,
