@@ -143,12 +143,14 @@ routes.delete('/TurmaAluno/:id', TurmaAluno.delete);//deletar
 //Rotas Frequencia
 routes.post('/Frequencia', Frequencia.insert);//salvar
 routes.get('/Frequencia', Frequencia.index);//lista
-routes.get('/Frequencia/:id', Frequencia.detalhes);//detalhes
+routes.get('/Frequencia/:turma/:data', Frequencia.detalhes);//detalhes
 routes.put('/Frequencia', Frequencia.atualizar);//atualizar
 routes.delete('/Frequencia/:id', Frequencia.delete);//deletar 
 
 routes.post('/planejamento', Planejamento.insert);//salvar
 routes.get('/planejamento', Planejamento.index);//lista
+routes.get('/planejamento/:id', Planejamento.detalhes);//
+
 
 routes.post('/user', User.insert);//salvar
 routes.post('/userLogin', User.login);//lista
