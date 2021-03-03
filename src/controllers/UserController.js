@@ -53,7 +53,7 @@ class Userr{
     }) //verificando se email existe no banco
     .then(user => {
       if (user){
-          jwt.login(user.id, user.email, user.nivel).then( toke =>{
+          jwt.login(user.nome, user.id, user.email, user.nivel).then( toke =>{
               Session.findOne({
                   userId: user.id
               }).then(session =>{
