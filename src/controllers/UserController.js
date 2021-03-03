@@ -18,7 +18,8 @@ class Userr{
     const userData = {
         nome: req.body.nome,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        nivel: req.body.nivel
       }
       //pesquisa por email existente
       User.findOne({
