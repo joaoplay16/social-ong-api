@@ -6,6 +6,9 @@ const mogoPaginate = require("mongoose-paginate");
 //documento do banco
 const Planejamento = new mongoose.Schema({
        
+            usuario: {
+                type: String,
+           },
             rotina: {
                 type: String,
             },

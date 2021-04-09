@@ -20,7 +20,9 @@ app.use("/assets", express.static(path.join(__dirname, "src/assets")))
 try {
   let url = process.env.NODE_ENV == 'production' ?  
   "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos"
-  : "mongodb://projetovamos:projetovamos2021@geonosis.mongodb.umbler.com:54975/projetovamos"
+  : "mongodb://bancotest:bancotest2021@mongo_projetotest:27017/projetotest"  
+
+  console.log("VARIAVEL  "+process.env.NODE_ENV)
   
   console.log("URL", url);
   mongoose.connect(
