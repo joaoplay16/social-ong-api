@@ -5,10 +5,11 @@ const bcrypt = require('bcrypt')
 process.env.SECRET_KEY = 'secret'
 
 module.exports = {
-    async login(id, email, nivel) {
+    async login(nome, id, email, nivel) {
         
         if(id != null && email != null){
               const payload = {
+                nome: nome,
                 userId: id,
                 email: email,
                 nivel: nivel
