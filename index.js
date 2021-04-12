@@ -18,9 +18,19 @@ app.use("/assets", express.static(path.join(__dirname, "src/assets")))
 //mongoose.connect("mongodb+srv://dbJoao:ecmascript@cluster0.gfubd.mongodb.net/dbong?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 try {
-  let url = process.env.NODE_ENV == 'production' ?  
-  "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos"
-  : "mongodb://bancotest:bancotest2021@mongo_projetotest:27017/projetotest"  
+  let url = ""
+  // let url = process.env.NODE_ENV == 'production' ?  
+  // "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos"
+  // : "mongodb://bancotest:bancotest2021@geonosis.mongodb.umbler.com:52454/projetotest"  
+
+  switch(process.env.NODE_ENV){
+    case 'production':
+        url = "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos"
+    case 'test':
+        url = "mongodb://bancotest:bancotest2021@mongo_projetotest:27017/projetotest"
+    default:
+        url = "mongodb://bancotest:bancotest2021@geonosis.mongodb.umbler.com:52454/projetotest"       
+  }
 
   console.log("VARIAVEL  "+process.env.NODE_ENV)
   

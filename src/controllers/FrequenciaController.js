@@ -43,7 +43,7 @@ module.exports = {
             foreignField: "_id",
             as: "turma"
           }
-        },
+      },
         {$unwind: "$turma"},
         
       ])
