@@ -15,7 +15,10 @@ const Planejamento = new mongoose.Schema({
             atividade:{
                 type: String,
             },
-            aceitacao:{
+            objetivo:{
+                type: String,
+            },
+            metodologia:{
                 type: String,
             },
             observacao:{
