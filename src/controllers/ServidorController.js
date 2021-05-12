@@ -31,7 +31,11 @@ module.exports = {
        
         if (req.files['arquivoFoto']) {
             let fotoSalva = req.files['arquivoFoto'][0]
-            deleteFile(modifiedServidor.foto)
+
+            if(modifiedServidor.foto != fotoSalva.path){
+                deleteFile(modifiedServidor.foto)
+            }
+            
             modifiedServidor.foto = fotoSalva.path
         }
         const servidor = await Servidor.findByIdAndUpdate(req.params.id, modifiedServidor, { new: true });
