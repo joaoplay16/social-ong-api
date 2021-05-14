@@ -30,7 +30,9 @@ module.exports = {
        
         if (req.files['arquivoFoto']) {
             let fotoSalva = req.files['arquivoFoto'][0]
-            deleteFile(modifiedPA.foto)
+            if(modifiedPA.foto != fotoSalva.path){
+                deleteFile(modifiedPA.foto)
+            }
             modifiedPA.foto = fotoSalva.path
         }
         const publicoAtendido = await PublicoAtendido.findByIdAndUpdate(req.params.id, modifiedPA, { new: true });
