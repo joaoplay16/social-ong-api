@@ -26,13 +26,16 @@ module.exports = {
     },
     //metodo atualizar
     async atualizar(req, res) {
+        console.log(req.files);
         let modifiedServidor = JSON.parse(req.body.servidor)
        
         if (req.files['arquivoFoto']) {
-            //deleta foto anterior se existir
-            deleteFile(modifiedServidor.foto)
-
             let fotoSalva = req.files['arquivoFoto'][0]
+
+            if(modifiedServidor.foto != fotoSalva.path){
+                deleteFile(modifiedServidor.foto)
+            }
+            
             modifiedServidor.foto = fotoSalva.path
         }
         const servidor = await Servidor.findByIdAndUpdate(req.params.id, modifiedServidor, { new: true });

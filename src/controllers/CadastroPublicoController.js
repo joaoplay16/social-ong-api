@@ -26,15 +26,14 @@ module.exports = {
     },
     //metodo atualizar
     async atualizar(req, res) {
-        let modifiedServidor = JSON.parse(req.body.publicoAtendido)
+        let modifiedPA = JSON.parse(req.body.publicoAtendido)
        
         if (req.files['arquivoFoto']) {
-             //deleta foto anterior se existir
-            deleteFile(modifiedServidor.foto)
             let fotoSalva = req.files['arquivoFoto'][0]
-            modifiedServidor.foto = fotoSalva.path
+            deleteFile(modifiedPA.foto)
+            modifiedPA.foto = fotoSalva.path
         }
-        const publicoAtendido = await PublicoAtendido.findByIdAndUpdate(req.params.id, modifiedServidor, { new: true });
+        const publicoAtendido = await PublicoAtendido.findByIdAndUpdate(req.params.id, modifiedPA, { new: true });
         return res.json(publicoAtendido);
     },
     //metodo deletar

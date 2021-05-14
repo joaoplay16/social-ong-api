@@ -6,9 +6,18 @@ function createUpload(path, fileField, JSONField) {
             cb(null, path)
         },
         filename: function name(req, file, cb) {
-            let filename = file.originalname
-            let extension = filename.substring(filename.indexOf('.'), filename.length)
-            cb(null, Date.now() + extension) 
+            let body = req.body
+            let person 
+            if(body.publicoAtendido != undefined){
+                person = body.publicoAtendido
+            }else {
+                person = body.servidor
+            }
+
+            
+            //let filename = file.originalname
+            //let extension = filename.substring(filename.indexOf('.'), filename.length)
+            cb(null, JSON.parse(person).cpf + '.jpg') 
         }
     })
     
