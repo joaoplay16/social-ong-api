@@ -149,6 +149,7 @@ routes.delete('/Frequencia/:id', Frequencia.delete);//deletar
 
 routes.post('/planejamento', Planejamento.insert);//salvar
 routes.get('/planejamento', Planejamento.index);//lista
+routes.get('/planejamento/:usuario', Planejamento.index2);//lista nivel2
 routes.put('/planejamento/:id', Planejamento.atualizar);//lista
 routes.get('/planejamento/:id', Planejamento.detalhes);//
 routes.delete('/planejamento/:id', Planejamento.delete);//

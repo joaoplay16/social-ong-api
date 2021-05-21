@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = mongoose.model('User');
 const Planejamento = mongoose.model('Planejamento');
 
 module.exports={
@@ -13,6 +14,13 @@ module.exports={
         const planejamento = await Planejamento.paginate({}, {page, limit: 500});
         return res.json(planejamento);
     },
+
+        //metodo de detalhes
+        async index2(req, res){
+            const planejamento = await Planejamento.find({usuario: req.params.usuario});
+            return res.json(planejamento);
+        },
+
     //metodo de detalhes
     async detalhes(req, res){
         const planejamento = await Planejamento.findById(req.params.id);
