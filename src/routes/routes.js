@@ -17,6 +17,7 @@ const Turma = require('../controllers/TurmaController')
 const Frequencia = require('../controllers/FrequenciaController')
 const TurmaAluno = require('../controllers/TurmaAlunoController')
 const Planejamento = require('../controllers/Planejamento')
+const PlanejamentoCoordenador = require('../controllers/PlanejamentoCoordenador')
 
 const createUpload = require('../util/multer-upload')
 const uploadPublicoAtendito = 
@@ -149,11 +150,18 @@ routes.delete('/Frequencia/:id', Frequencia.delete);//deletar
 
 routes.post('/planejamento', Planejamento.insert);//salvar
 routes.get('/planejamento', Planejamento.index);//lista
-routes.get('/planejamento/:usuario', Planejamento.index2);//lista nivel2
+// routes.get('/planejamento/:usuario', Planejamento.index2);//lista nivel2
 routes.put('/planejamento/:id', Planejamento.atualizar);//lista
 routes.get('/planejamento/:id', Planejamento.detalhes);//
 routes.delete('/planejamento/:id', Planejamento.delete);//
 
+
+routes.post('/planejamentoCoord', PlanejamentoCoordenador.insert);//salvar
+routes.get('/planejamentoCoord', PlanejamentoCoordenador.index);//lista
+// routes.get('/planejamentoCoord/:usuario', PlanejamentoCoordenador.index2);//lista nivel2
+routes.put('/planejamentoCoord/:id', PlanejamentoCoordenador.atualizar);//lista
+routes.get('/planejamentoCoord/:id', PlanejamentoCoordenador.detalhes);//
+routes.delete('/planejamentoCoord/:id', PlanejamentoCoordenador.delete);//
 
 routes.post('/user', User.insert);//salvar
 routes.post('/userLogin', User.login);//lista
