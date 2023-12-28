@@ -14,27 +14,16 @@ app.use(cors())
 app.use("/src/uploads", express.static(path.join(__dirname, "src/uploads")))
 app.use("/assets", express.static(path.join(__dirname, "src/assets")))
 
-//conexão com banco de dados
-//mongoose.connect("mongodb+srv://dbJoao:ecmascript@cluster0.gfubd.mongodb.net/dbong?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-
 try {
   let url = ""
-  // let url = process.env.NODE_ENV == 'production' ?  
-  // "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos"
-  // : "mongodb://bancotest:bancotest2021@geonosis.mongodb.umbler.com:52454/projetotest"  
 
   switch(process.env.ENVIROMENT){
     case 'production':
-        url = "mongodb://projetovamos:projetovamos2021@mongo_projetovamos:27017/projetovamos"
-        break
-    case 'test':
-        url = "mongodb://bancotest:bancotest2021@mongo_projetotest:27017/projetotest"
-        break
-    case 'local':
-        url = "mongodb://localhost:27017/projetovamos"
+        url = process.env.PROD_DB_URL
         break
     default:
-        url = "mongodb://bancotest:bancotest2021@geonosis.mongodb.umbler.com:52454/projetotest"       
+        url = process.env.LOCAL_DB_URL
+        break    
   }
 
   console.log("ENVIROMENT  "+process.env.ENVIROMENT)
